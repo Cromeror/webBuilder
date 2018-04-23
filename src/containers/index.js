@@ -6,7 +6,6 @@ import { store } from '../store/configureStore'
 
 const title = 'My React Webpack Babel Setup using ES6';
 
-
 ReactDOM.render(
   <Provider store={store}>
     <App />

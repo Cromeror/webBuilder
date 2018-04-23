@@ -8,3 +8,4 @@ describe('renders without crashing', () => {
         ReactDOM.render(<LoginBox />, div);
     });
 });
+

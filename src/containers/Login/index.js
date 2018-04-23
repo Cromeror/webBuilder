@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form } from 'antd';
+import LoginBox from './LoginBox.component'
 
 require('./index.scss')
 class Login extends Component {
@@ -10,8 +11,7 @@ class Login extends Component {
     render() {
         return (
             <div>
-                <Form>
-                </Form>
+                <LoginBox />
             </div>
         );
     }

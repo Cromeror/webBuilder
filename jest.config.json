@@ -4,6 +4,8 @@
         "jsx"
     ],
     "moduleNameMapper": {
-        "Login": "<rootDir>/src/containers/Login"
+        "Login": "<rootDir>/src/containers/Login",
+        "services.Users": "<rootDir>/src/services/Users.js",
+        "actions.Users": "<rootDir>/src/actions/Users.js"
     }
 }
