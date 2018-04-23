@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { Form } from 'antd';
+import {
+    Row,
+    Col
+} from 'antd';
 import LoginBox from './LoginBox.component'
 
 require('./index.scss')
@@ -10,8 +13,12 @@ class Login extends Component {
 
     render() {
         return (
-            <div>
-                <LoginBox />
+            <div className='login'>
+                <Row className='row-full-height' type="flex" justify='center' align="middle">
+                    <Col>
+                        <LoginBox />
+                    </Col>
+                </Row>
             </div>
         );
     }
