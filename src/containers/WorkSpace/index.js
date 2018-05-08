@@ -27,7 +27,24 @@ class WorkSpace extends Component {
                             components={
                                 {
                                     'idName': {
-                                        type: "layout"
+                                        type: "layout",
+                                        children: {
+                                            'inputName': {
+                                                config: {}
+                                            },
+                                            'idName': {
+                                                type: "layout",
+                                                children: {
+                                                    'inputName': {
+                                                        type: "layout",
+                                                        config: {}
+                                                    },
+                                                    'inputName1': {
+                                                        config: {}
+                                                    }
+                                                }
+                                            }
+                                        }
                                     }
                                 }
                             } />

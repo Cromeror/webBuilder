@@ -17,7 +17,7 @@ class GridBuilder extends Component {
         const { components } = this.props
 
         if (components && typeof components == 'object') {
-            this.analyzeTree(components)
+            this.components = this.analyzeTree(components)
         }
     }
 
@@ -28,16 +28,21 @@ class GridBuilder extends Component {
      * @param {*} tree 
      */
     analyzeTree(tree) {
+        let renderedTree = new Array()
         for (const nodeKey in tree) {
             if (tree.hasOwnProperty(nodeKey)) {
                 const nodeValue = tree[nodeKey];
                 switch (nodeValue.type) {
                     case 'layout':
-                        console.log(nodeValue.type);
+                        renderedTree.push(<Layout key={Math.random()}> test {nodeValue.children & this.analyzeTree(nodeValue.children)} </Layout>)
+                        break;
+                    default:
+                        console.log('Llego a una hoja')
                         break;
                 }
             }
         }
+        return renderedTree
     }
 
     render() {
