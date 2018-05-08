@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import Login from '../Login'
-import {
-
-} from 'antd'
+import Login from '../Login';
+import Dashboard from '../Dashboard';
 
 require('./index.scss')
 class App extends Component {
@@ -13,7 +11,7 @@ class App extends Component {
     render() {
         return (
             <div className='app'>
-                <Login />
+                <Dashboard />
             </div>
         );
     }
