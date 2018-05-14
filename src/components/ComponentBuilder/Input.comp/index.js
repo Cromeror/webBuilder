@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-    Layout
-} from 'antd';
+import { Input } from 'antd';
 
 class LayoutComp extends Component {
     constructor(props) {
         super(props);
+
+        this.config = null
     }
 
     componentWillMount() {
         const { config } = this.props
-
-        if (config) {
-        }
+        this.config = config
     }
 
     render() {
         return (
-            <Layout>
-                Primer text
-            </Layout>
+            <Input {...this.config} />
         );
     }
 };

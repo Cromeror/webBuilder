@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Layout from './Layout.comp'
+import Input from './Input.comp'
 
 class Builder extends Component {
     constructor(props) {
@@ -9,12 +9,12 @@ class Builder extends Component {
     }
 
     componentWillMount() {
-        const { config } = this.props
+        const { type, config } = this.props
 
-        if (config) {
-            switch (config.type) {
-                case 'layout':
-                    this.child = <Layout />
+        if (type) {
+            switch (type) {
+                case 'input':
+                    this.child = <Input {...{ config }} />
             }
         }
     }

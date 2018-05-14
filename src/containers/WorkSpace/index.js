@@ -7,6 +7,7 @@ import WorkTools from './WorkTools.comp'
 import ComponentBuilder from '../../components/ComponentBuilder'
 import GridBuilder from '../../components/GridBuilder'
 require('./index.scss')
+
 class WorkSpace extends Component {
     constructor(props) {
         super(props);
@@ -28,19 +29,54 @@ class WorkSpace extends Component {
                                 {
                                     'idName': {
                                         type: "layout",
+                                        config: {
+                                            className: 'pad',
+                                            key: 'ProbandoKey'
+                                        },
                                         children: {
                                             'inputName': {
                                                 config: {}
                                             },
+                                            "row": {
+                                                type: 'row',
+                                                children: {
+                                                    'col': {
+                                                        type: "col",
+                                                        span: 4,
+                                                        children: {
+                                                            'inputName1': {
+                                                                type: 'input',
+                                                                config: {
+                                                                    placeholder: 'Hola soy un placeholder',
+                                                                    key: 'ProbandoKey'
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    'col2': {
+                                                        type: "col",
+                                                        span: 4,
+                                                    },
+                                                    'col3': {
+                                                        type: "col",
+                                                        span: 4,
+                                                    },
+                                                    'col4': {
+                                                        type: "col",
+                                                        span: 4,
+                                                    }
+                                                }
+                                            },
                                             'idName': {
-                                                type: "layout",
+                                                type: 'layout',
                                                 children: {
                                                     'inputName': {
-                                                        type: "layout",
+                                                        type: 'layout',
                                                         config: {}
                                                     },
                                                     'inputName1': {
-                                                        config: {}
+                                                        type: 'input',
+                                                        placeholder: 'Hola soy un placeholder'
                                                     }
                                                 }
                                             }

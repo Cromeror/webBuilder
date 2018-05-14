@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import {
-    Layout
+    Layout,
+    Col,
+    Row
 } from 'antd'
+import ComponentBuilder from '../ComponentBuilder'
 
 /**
  * components: es un JSON contiene los elementos que se van a renderizar y puede contener elementos layout anidados en forma de arbol.
@@ -34,15 +37,61 @@ class GridBuilder extends Component {
                 const nodeValue = tree[nodeKey];
                 switch (nodeValue.type) {
                     case 'layout':
-                        renderedTree.push(<Layout key={Math.random()}> test {nodeValue.children & this.analyzeTree(nodeValue.children)} </Layout>)
+                        if (nodeValue.children)
+                            renderedTree.push(
+                                <Layout
+                                    {...nodeValue.config}
+                                    key={Math.random()}>
+                                    {this.analyzeTree(nodeValue.children)}
+                                </Layout>)
                         break;
+                    case 'col':
+                        renderedTree.push(
+                            <Col
+                                span={nodeValue.span ? nodeValue.span : null}
+                                key={Math.random()}>
+                                {nodeValue.children
+                                    ? this.analyzeTree(nodeValue.children)
+                                    : <div></div>}
+                            </Col>)
+                        break
+                    case 'row':
+                        renderedTree.push(
+                            <Row
+                                key={Math.random()}>
+                                {nodeValue.children
+                                    ? this.analyzeTree(nodeValue.children)
+                                    : <div></div>}
+                            </Row>)
+                        break
                     default:
-                        console.log('Llego a una hoja')
+                        renderedTree.push(<ComponentBuilder
+                            key={Math.random()}
+                            {...nodeValue} />)
                         break;
                 }
             }
         }
         return renderedTree
+    }
+
+    /**
+     * Construye un objeto que luego podrá ser pasado como configuración a un componente de ant-D
+     * 
+     * @param {*} configParam 
+     */
+    configBuilder(configParam) {
+        let configBuilded = new Object();
+        for (const key in configParam) {
+            if (configParam.hasOwnProperty(key)) {
+                switch (key) {
+                    case 'span':
+                        configBuilded[key] = configParam[key]
+                        break;
+                }
+            }
+        }
+        return configBuilded
     }
 
     render() {
