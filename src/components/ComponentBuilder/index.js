@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input.comp'
+import Text from './Text.comp'
 
 class Builder extends Component {
     constructor(props) {
@@ -15,6 +16,9 @@ class Builder extends Component {
             switch (type) {
                 case 'input':
                     this.child = <Input {...{ config }} />
+                    break;
+                case 'h1':
+                    this.child = <Text {...{ config }} type='h1' text={this.props.text} />
             }
         }
     }
@@ -25,7 +29,8 @@ class Builder extends Component {
 };
 
 Builder.propTypes = {
-    config: PropTypes.object
+    config: PropTypes.object,
+    text: PropTypes.text
 }
 
 export default Builder

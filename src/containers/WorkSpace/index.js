@@ -75,8 +75,8 @@ class WorkSpace extends Component {
                                                         config: {}
                                                     },
                                                     'inputName1': {
-                                                        type: 'input',
-                                                        placeholder: 'Hola soy un placeholder'
+                                                        type: 'h1',
+                                                        text: 'Hola soy un texto de prueba'
                                                     }
                                                 }
                                             }
