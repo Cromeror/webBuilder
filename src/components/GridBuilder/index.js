@@ -48,7 +48,7 @@ class GridBuilder extends Component {
                     case 'col':
                         renderedTree.push(
                             <Col
-                                span={nodeValue.span ? nodeValue.span : null}
+                                {...nodeValue.config}
                                 key={Math.random()}>
                                 {nodeValue.children
                                     ? this.analyzeTree(nodeValue.children)

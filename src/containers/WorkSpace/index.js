@@ -34,49 +34,153 @@ class WorkSpace extends Component {
                                             key: 'ProbandoKey'
                                         },
                                         children: {
-                                            'inputName': {
-                                                config: {}
-                                            },
                                             "row": {
                                                 type: 'row',
                                                 children: {
                                                     'col': {
                                                         type: "col",
-                                                        span: 4,
+                                                        config: {
+                                                            className: 'pad',
+                                                            key: 'ProbandoKey',
+                                                            span: { xs: 24, md: 12 },
+                                                            align: "middle"
+                                                        },
                                                         children: {
                                                             'inputName1': {
-                                                                type: 'input',
-                                                                config: {
-                                                                    placeholder: 'Hola soy un placeholder',
-                                                                    key: 'ProbandoKey'
-                                                                }
+                                                                type: 'p',
+                                                                text: 'Texto responsive'
                                                             }
                                                         }
                                                     },
                                                     'col2': {
                                                         type: "col",
-                                                        span: 4,
-                                                    },
-                                                    'col3': {
-                                                        type: "col",
-                                                        span: 4,
-                                                    },
-                                                    'col4': {
-                                                        type: "col",
-                                                        span: 4,
+                                                        config: {
+                                                            className: 'pad',
+                                                            key: 'ProbandoKey',
+                                                            span: { xs: 24, md: 12 }
+                                                        },
+                                                        children: {
+                                                            'inputName1': {
+                                                                type: 'h1',
+                                                                text: 'Texto 2'
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             },
                                             'idName': {
                                                 type: 'layout',
                                                 children: {
-                                                    'inputName': {
-                                                        type: 'layout',
-                                                        config: {}
-                                                    },
-                                                    'inputName1': {
-                                                        type: 'h1',
-                                                        text: 'Hola soy un texto de prueba'
+                                                    "row": {
+                                                        type: 'row',
+                                                        children: {
+                                                            'col': {
+                                                                type: "col",
+                                                                span: 12,
+                                                                children: {
+                                                                    'inputName1': {
+                                                                        type: 'h1',
+                                                                        text: 'Caring for every body'
+                                                                    },
+                                                                    'inputName2': {
+                                                                        type: 'p',
+                                                                        text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit vitae auctor bibendum ligula phasellus, sem libero tempus dui vivamus accumsan quis augue per natoque montes. '
+                                                                    }
+                                                                }
+                                                            },
+                                                            'col2': {
+                                                                type: "col",
+                                                                span: 12,
+                                                                config: {
+                                                                    className: 'pad',
+                                                                    key: 'ProbandoKey',
+                                                                    className: { padding: 50 }
+                                                                },
+                                                                children: {
+                                                                    'idName': {
+                                                                        type: 'layout',
+                                                                        children: {
+                                                                            'title': {
+                                                                                type: 'p',
+                                                                                text: 'Start here'
+                                                                            },
+                                                                            'subtitle': {
+                                                                                type: 'p',
+                                                                                text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit vitae auctor bibendum ligula phasellus, sem libero tempus dui vivamus accumsan quis augue per natoque montes. '
+                                                                            },
+                                                                            'inputName1': {
+                                                                                type: 'input'
+                                                                            },
+                                                                            'inputName2': {
+                                                                                type: 'input'
+                                                                            },
+                                                                            'inputName3': {
+                                                                                type: 'input'
+                                                                            },
+                                                                            'inputName4': {
+                                                                                type: 'input'
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "as": {
+                                                type: "layout",
+                                                config: {
+                                                    className: 'pad',
+                                                    key: 'ProbandoKey'
+                                                },
+                                                children: {
+                                                    "row": {
+                                                        type: 'row',
+                                                        children: {
+                                                            'col': {
+                                                                type: "col",
+                                                                config: {
+                                                                    className: 'pad',
+                                                                    key: 'ProbandoKey',
+                                                                    span: 7
+                                                                },
+                                                                children: {
+                                                                    'inputName1': {
+                                                                        type: 'p',
+                                                                        text: 'Hola soy un texto de prueba'
+                                                                    }
+                                                                }
+                                                            },
+                                                            'col2': {
+                                                                type: "col",
+                                                                config: {
+                                                                    className: 'pad',
+                                                                    key: 'ProbandoKey',
+                                                                    span: 7
+                                                                },
+                                                                children: {
+                                                                    'inputName1': {
+                                                                        type: 'h1',
+                                                                        text: 'Texto 2'
+                                                                    }
+                                                                }
+                                                            },
+                                                            'col3': {
+                                                                type: "col",
+                                                                config: {
+                                                                    className: 'pad',
+                                                                    key: 'ProbandoKey',
+                                                                    span: 7
+                                                                },
+                                                                children: {
+                                                                    'inputName1': {
+                                                                        type: 'h1',
+                                                                        text: 'Texto 2'
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
                                                     }
                                                 }
                                             }

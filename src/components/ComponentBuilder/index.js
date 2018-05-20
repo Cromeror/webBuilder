@@ -19,6 +19,8 @@ class Builder extends Component {
                     break;
                 case 'h1':
                     this.child = <Text {...{ config }} type='h1' text={this.props.text} />
+                case 'p':
+                    this.child = <Text {...{ config }} type='p' text={this.props.text} />
             }
         }
     }
