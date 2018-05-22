@@ -39,35 +39,36 @@ class GridBuilder extends Component {
                     case 'layout':
                         if (nodeValue.children)
                             renderedTree.push(
-                                <Layout
-                                    {...nodeValue.config}
-                                    key={Math.random()}>
+                                <Layout {...nodeValue.config}>
                                     {this.analyzeTree(nodeValue.children)}
                                 </Layout>)
                         break;
-                    case 'col':
+                    case 'div':
                         renderedTree.push(
-                            <Col
-                                {...nodeValue.config}
-                                key={Math.random()}>
+                            <div {...nodeValue.config}>
                                 {nodeValue.children
                                     ? this.analyzeTree(nodeValue.children)
                                     : <div></div>}
-                            </Col>)
+                            </div>)
                         break
                     case 'row':
                         renderedTree.push(
-                            <Row
-                                key={Math.random()}>
+                            <Row {...nodeValue.config}>
                                 {nodeValue.children
                                     ? this.analyzeTree(nodeValue.children)
                                     : <div></div>}
                             </Row>)
                         break
+                    case 'col':
+                        renderedTree.push(
+                            <Col {...nodeValue.config}>
+                                {nodeValue.children
+                                    ? this.analyzeTree(nodeValue.children)
+                                    : <div></div>}
+                            </Col>)
+                        break
                     default:
-                        renderedTree.push(<ComponentBuilder
-                            key={Math.random()}
-                            {...nodeValue} />)
+                        renderedTree.push(<ComponentBuilder {...nodeValue} />)
                         break;
                 }
             }
