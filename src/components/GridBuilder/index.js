@@ -24,6 +24,22 @@ class GridBuilder extends Component {
         }
     }
 
+    componentWillReceiveProps(nextProps) {
+        const { components } = nextProps
+        if (components != this.props.components) {
+            if (components && typeof components == 'object') {
+                this.components = this.analyzeTree(components)
+            }
+        }
+    }
+
+    render() {
+        return (
+            <Layout style={{ height: '100%' }}>
+                {this.components}
+            </Layout>)
+    }
+
     /**
      * Quiero analizar los dos primeros niveles, el primer es la keyname y el segundo la configuracion.
      * 
@@ -37,11 +53,12 @@ class GridBuilder extends Component {
                 const nodeValue = tree[nodeKey];
                 switch (nodeValue.type) {
                     case 'layout':
-                        if (nodeValue.children)
-                            renderedTree.push(
-                                <Layout {...nodeValue.config}>
-                                    {this.analyzeTree(nodeValue.children)}
-                                </Layout>)
+                        renderedTree.push(
+                            <Layout {...nodeValue.config}>
+                                {nodeValue.children
+                                    ? this.analyzeTree(nodeValue.children)
+                                    : <div></div>}
+                            </Layout>)
                         break;
                     case 'div':
                         renderedTree.push(
@@ -74,32 +91,6 @@ class GridBuilder extends Component {
             }
         }
         return renderedTree
-    }
-
-    /**
-     * Construye un objeto que luego podrá ser pasado como configuración a un componente de ant-D
-     * 
-     * @param {*} configParam 
-     */
-    configBuilder(configParam) {
-        let configBuilded = new Object();
-        for (const key in configParam) {
-            if (configParam.hasOwnProperty(key)) {
-                switch (key) {
-                    case 'span':
-                        configBuilded[key] = configParam[key]
-                        break;
-                }
-            }
-        }
-        return configBuilded
-    }
-
-    render() {
-        return (
-            <Layout>
-                {this.components}
-            </Layout>)
     }
 };
 
