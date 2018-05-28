@@ -39,10 +39,7 @@ class WorkSpace extends Component {
                 child['child' + Math.random()] = {
                     type: 'div',
                     config: {
-                        style: {
-                            height: 100,
-                            background: 'yellow'
-                        },
+                        className: 'element',
                         key: Math.random()
                     }
                 }
@@ -65,18 +62,28 @@ class WorkSpace extends Component {
         this.setState({ tasks }); */
     };
 
-    onDragOver = e => {
+    onDragOver = (e, content) => {
+        //console.log("onDragOver", e.dataTransfer.getData('id'))
         e.preventDefault();
+        e.target.style.border = "4px dotted green";
+    };
+
+    onDragLeave = (e, content) => {
+        //console.log("onDragOver", e.dataTransfer.getData('id'))
+        e.preventDefault();
+        e.target.style.border = "0px";
     };
 
     render() {
         return (
             <Layout className='workspace'>
                 <WorkTools />
-                <Layout style={{ padding: '0 24px 24px' }}
-                    onDragOver={this.onDragOver}
-                    onDrop={e => this.onDrop(e, "complete")}>
-                    <Layout.Content style={{ background: '#fff', padding: 24, margin: 0, minHeight: 280, height: '100%' }}>
+                <Layout style={{ padding: '0 24px 24px' }}>
+                    <Layout.Content
+                        className="workspace-content"
+                        onDragOver={e => this.onDragOver(e, 'ref')}
+                        onDragLeave={e => this.onDragLeave(e, 'ref')}
+                        onDrop={e => this.onDrop(e, "complete")}>
                         <GridBuilder
                             components={this.state.pageConfig} />
                     </Layout.Content>

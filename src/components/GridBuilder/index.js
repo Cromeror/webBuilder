@@ -7,6 +7,8 @@ import {
 } from 'antd'
 import ComponentBuilder from '../ComponentBuilder'
 
+require('./index.scss')
+
 /**
  * components: es un JSON contiene los elementos que se van a renderizar y puede contener elementos layout anidados en forma de arbol.
  */

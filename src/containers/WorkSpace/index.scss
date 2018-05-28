@@ -3,5 +3,18 @@
 }
 
 .pad{
-    padding: 20px;
+    padding: 100px;
+}
+
+.workspace-content{
+    background: #fff !important;
+    padding: 24px;
+    margin: 0px;
+    min-height: 280px;
+    height: 100%;
+}
+
+.element{
+    background: green;
+    height: 100px;
 }
